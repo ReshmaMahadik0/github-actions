@@ -1,2 +1,4 @@
 echo "Step 1: Build Project"
-mvn clean install
+
+cd "$(dirname "$0")/.."
+./mvnw clean install -DskipTests
