@@ -8,4 +8,5 @@ docker rm github-actions-container || true
 echo "Step 6: Running Docker container"
 docker run -d -p 8080:8080 --name github-actions-container github-actions-example
 
+
 echo "Deployment completed"
