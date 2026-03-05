@@ -36,6 +36,7 @@ jobs:
       run: bash scm/test.sh
       working-directory: github-actions-example
 
+
     - name: Deploy Application
       run: bash scm/deploy.sh
       working-directory: github-actions-example
