@@ -28,23 +28,15 @@ jobs:
         cache: maven
 
     - name: Build Project
-        # Give permission to mvnw AND the build script, then run it
-      run: |
-          chmod +x mvnw
-          chmod +x scm/build.sh
-          bash scm/build.sh
-        working-directory: github-actions-example
+      run: bash scm/build.sh
+      working-directory: github-actions-example
 
     - name: Run Tests
-      run: |
-        chmod +x scm/test.sh
-        bash scm/test.sh
+      run: bash scm/test.sh
       working-directory: github-actions-example
 
     - name: Deploy Application
-      run: |
-        chmod +x scm/deploy.sh
-        bash scm/deploy.sh
+      run: bash scm/deploy.sh
       working-directory: github-actions-example
 
     - name: List Files for Debugging
