@@ -27,6 +27,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Give permission
+      run: chmod +x scm/*.sh
+      working-directory: github-actions-example
+
     - name: Build Project
       run: bash scm/build.sh
       working-directory: github-actions-example
