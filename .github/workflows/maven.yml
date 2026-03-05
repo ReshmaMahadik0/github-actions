@@ -27,8 +27,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Run SCM Pipeline
-      run: bash github-actions-example/scm/pipeline.sh
+    - name: Build Project
+      run: bash github-actions-example/scm/build.sh
 
+    - name: Run Tests
+      run: bash github-actions-example/scm/test.sh
 
-
+    - name: Deploy Application
+      run: bash github-actions-example/scm/deploy.sh
