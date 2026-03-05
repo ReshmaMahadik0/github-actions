@@ -28,7 +28,7 @@ jobs:
         cache: maven
 
     - name: Run SCM Pipeline
-      run: bash scm/pipeline.sh
+      run: bash github-actions-example/scm/pipeline.sh
 
 
 
