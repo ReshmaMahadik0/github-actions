@@ -29,12 +29,15 @@ jobs:
 
     - name: Build Project
       run: bash scm/build.sh
-      working-directory: github-actions-example/github-actions-example
+      working-directory: github-actions-example
 
     - name: Run Tests
       run: bash scm/test.sh
-      working-directory: github-actions-example/github-actions-example
+      working-directory: github-actions-example
 
     - name: Deploy Application
       run: bash scm/deploy.sh
-      working-directory: github-actions-example/github-actions-example
+      working-directory: github-actions-example
+
+    - name: List Files for Debugging
+      run: ls -R
