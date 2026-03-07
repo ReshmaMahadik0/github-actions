@@ -1,4 +1,5 @@
 echo "Step 2: Run Tests"
-./mvn test
-
+//./mvn test
 //used maven wrapper instead of system wrapper
+
+mvn test
