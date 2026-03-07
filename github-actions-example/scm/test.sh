@@ -1,5 +1,7 @@
-echo "Step 2: Run Tests"
-//./mvn test
-//used maven wrapper instead of system wrapper
+cd "$(dirname "$0")/.."
 
-mvn test
+echo "Step 2: Run Tests"
+./mvn test
+used maven wrapper instead of system wrapper
+
+#mvn test
