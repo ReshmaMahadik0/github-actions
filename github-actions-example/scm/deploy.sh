@@ -1,5 +1,6 @@
 
 #docker build -t github-actions-example .
+echo "Docker Username: $DOCKER_USERNAME"
 echo "Build Docker Image"
 docker build -t $DOCKER_USERNAME/github-actions-example .
 echo "Push Docker Image"
