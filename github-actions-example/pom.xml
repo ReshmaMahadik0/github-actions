@@ -22,9 +22,9 @@
 	<properties>
 		<java.version>17</java.version>
 		<jacoco.version>0.8.12</jacoco.version>
-		<sonar.projectkey>ReshmaMahadik0_github-actions</sonar.projectkey>
-		<sonar.orgaization>reshmamahadik0</sonar.orgaization>
-		<sonar.host.url>http://sonarcloud.io</sonar.host.url>
+<!--		<sonar.projectkey>ReshmaMahadik0_github-actions</sonar.projectkey>-->
+<!--		<sonar.orgaization>reshmamahadik0</sonar.orgaization>-->
+<!--		<sonar.host.url>http://sonarcloud.io</sonar.host.url>-->
 		<sonar.java.binaries>target/classes</sonar.java.binaries>
 	</properties>
 

@@ -12,8 +12,10 @@ echo "STEP 2 : Run Tests"
 
 echo "STEP 3 : SonarQube Analysis"
 ./mvnw clean verify sonar:sonar \
--Dsonar.token=$SONAR_TOKEN
-
+  -Dsonar.token=$SONAR_TOKEN \
+  -Dsonar.organization=reshmamahadik0 \
+  -Dsonar.projectKey=ReshmaMahadik0_github-actions \
+  -Dsonar.host.url=https://sonarcloud.io
 
 echo "STEP 4 : Docker Build"
 echo "Docker Username: $DOCKER_USERNAME"
