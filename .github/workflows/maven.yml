@@ -15,7 +15,7 @@ on:
 env:
   AWS_REGION: ap-south-1
   ECR_REPOSITORY: repo/github-actions
-  #    CONTAINER_NAME: containerName
+  CONTAINER_NAME: github-actions
 
 jobs:
   build:
@@ -69,8 +69,14 @@ jobs:
          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Add this for SonarCloud/PR features
          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+         ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
+         CONTAINER_NAME: ${{ env.CONTAINER_NAME }}
+         EC2_HOST: ${{ secrets.EC2_HOST }}
+         EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
 
       run: bash scm/txt.sh
+
+#build a docker container and push it to ECR so that it can be deployed to ECS
 
   #    - name: Deploy Application
   #      shell: bash
