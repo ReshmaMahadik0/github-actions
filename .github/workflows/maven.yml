@@ -12,7 +12,10 @@ on:
   push:
     branches: [ "master" ]
 
-
+env:
+  AWS_REGION: ap-south-1
+  ECR_REPOSITORY: repo/github-actions
+  #    CONTAINER_NAME: containerName
 
 jobs:
   build:
@@ -29,10 +32,7 @@ jobs:
         cache: maven
 
 
-      env:
-        AWS_REGION: ap-south-1
-        ECR_REPOSITORY: repo/github-actions
-#        CONTAINER_NAME: containerName
+
 
 #
 #    - name: Build Project
