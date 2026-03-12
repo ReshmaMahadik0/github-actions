@@ -33,6 +33,8 @@ echo "================================="
 echo "$EC2_SSH_KEY" > key.pem
 chmod 400 key.pem
 
+echo "EC2 HOST = $EC2_HOST"
+
 ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@$EC2_HOST << EOF
 
 aws ecr get-login-password --region $AWS_REGION \
