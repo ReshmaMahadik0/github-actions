@@ -26,16 +26,14 @@ echo "STEP 5 : Push Image to ECR"
 docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
 
-echo "================================="
 echo "STEP 6 : Deploy to EC2"
-echo "================================="
 
 echo "$EC2_SSH_KEY" > key.pem
 chmod 400 key.pem
 
 echo "EC2 HOST = $EC2_HOST"
 
-ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@$EC2_HOST
+ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@$EC2_HOST << EOF
 
 aws ecr get-login-password --region $AWS_REGION \
 | docker login --username AWS --password-stdin $ECR_REGISTRY
@@ -53,6 +51,7 @@ docker run -d \
 --name $CONTAINER_NAME \
 $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
+EOF
 
 echo "Deployment Completed"
 
