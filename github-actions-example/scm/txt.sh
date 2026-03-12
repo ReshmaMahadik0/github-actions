@@ -35,7 +35,7 @@ chmod 400 key.pem
 
 echo "EC2 HOST = $EC2_HOST"
 
-ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@$EC2_HOST << EOF
+ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@$EC2_HOST
 
 aws ecr get-login-password --region $AWS_REGION \
 | docker login --username AWS --password-stdin $ECR_REGISTRY
@@ -53,7 +53,6 @@ docker run -d \
 --name $CONTAINER_NAME \
 $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
-EOF
 
 echo "Deployment Completed"
 
