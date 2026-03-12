@@ -18,21 +18,13 @@ echo "STEP 3 : SonarQube Analysis"
   -Dsonar.host.url=https://sonarcloud.io
 
 echo "STEP 4 : Build Docker Image"
-echo "Docker Username: $DOCKER_USERNAME"
-#docker build -t "${DOCKER_USERNAME}/spring-boot-demo:latest" .
 IMAGE_TAG=latest
 docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
 
 
-#echo "STEP 5 : Push Docker Image"
-#docker push "${DOCKER_USERNAME}/spring-boot-demo:latest"
-
 echo "STEP 5 : Push Image to ECR"
 docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-
-#echo "Run Docker Container"
-#docker run -d -p 8080:8080 "${DOCKER_USERNAME}/spring-boot-demo:latest"
 
 echo "================================="
 echo "STEP 6 : Deploy to EC2"
@@ -41,7 +33,7 @@ echo "================================="
 echo "$EC2_SSH_KEY" > key.pem
 chmod 400 key.pem
 
-#ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@$EC2_HOST << EOF
+ssh -o StrictHostKeyChecking=no -i key.pem ec2-user@$EC2_HOST << EOF
 
 aws ecr get-login-password --region $AWS_REGION \
 | docker login --username AWS --password-stdin $ECR_REGISTRY
